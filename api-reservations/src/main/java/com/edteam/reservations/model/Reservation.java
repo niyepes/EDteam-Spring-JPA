@@ -3,13 +3,20 @@ package com.edteam.reservations.model;
 import java.time.LocalDate;
 import java.util.List;
 
+@Entity
+
 public class Reservation {
 
+    @Id
+    @GeneratedValue
     private Long id;
-    private List<Passenger> passengers;
 
+    @Transient
+    private List<Passenger> passengers;
+    @Transient
     private Itinerary itinerary;
 
+    @Column(name=creation_date)
     private LocalDate creationDate;
 
     public List<Passenger> getPassengers() {
