@@ -1,6 +1,7 @@
 package com.edteam.reservations.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -14,6 +15,7 @@ public class Itinerary {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message="You need at least one segment")
     @OneToMany
     @Cascade(CascadeType.ALL)
     @JoinColumn(name="itinerary_id")
