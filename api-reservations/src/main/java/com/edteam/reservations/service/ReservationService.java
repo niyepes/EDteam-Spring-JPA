@@ -59,7 +59,7 @@ public class ReservationService {
             throw new EdteamException(APIError.RESERVATION_NOT_FOUND);
         }
         Reservation transformed = conversionService.convert(reservation, Reservation.class);
-        Reservation result = repository.save(id, Objects.requireNonNull(transformed));
+        Reservation result = repository.save(Objects.requireNonNull(transformed));
         return conversionService.convert(result, ReservationDTO.class);
     }
 
