@@ -85,7 +85,5 @@ public class ReservationService {
         if (!violations.isEmpty()){
             throw new ConstraintViolationException(violations);
         }
-
-
     }
 }
