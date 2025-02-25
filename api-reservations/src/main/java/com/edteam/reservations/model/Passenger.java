@@ -1,6 +1,7 @@
 package com.edteam.reservations.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
@@ -15,20 +16,27 @@ public class Passenger {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Valid
+    @Size(min=1,max=30)
+    @NotBlank(message = "firstName is mandatory")
     @Column(name="first_name",nullable=false,length=30)
     private String firstName;
 
+    @Valid
     @Size(min=1,max=30)
     @NotBlank(message = "lastName is mandatory")
     @Column(name="last_name",nullable=false,length=30)
     private String lastName;
 
+    @Valid
     @Column(name="document_number",nullable=false)
     private String documentNumber;
 
+    @Valid
     @Column(name="document_type",nullable=false)
     private String documentType;
 
+    @Valid
     @Past(message="Birthday must be in the past")
     @Column(name="birthday",nullable=false)
     private LocalDate birthday;

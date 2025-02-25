@@ -1,12 +1,11 @@
 package com.edteam.reservations.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
-import org.springframework.data.annotation.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,17 +18,20 @@ public class Reservation {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @Valid
     @NotEmpty(message="You need at least one passenger")
     @OneToMany
     @Cascade(CascadeType.ALL)
     @JoinColumn(name="reservation_id")
     private List<Passenger> passengers;
 
+    @Valid
     @ManyToOne
     @Cascade(CascadeType.ALL)
     @JoinColumn(name="itinerary_id")
     private Itinerary itinerary;
 
+    @Valid
     @Column(name = "creation_date")
     private LocalDate creationDate;
 
