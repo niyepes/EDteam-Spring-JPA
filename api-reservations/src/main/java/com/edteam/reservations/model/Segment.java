@@ -1,18 +1,26 @@
 package com.edteam.reservations.model;
 
+import jakarta.persistence.Column;
+
 import java.util.Objects;
 
 public class Segment extends Base {
 
+    @Column(name = "origin", nullable = false, length = 3)
     private String origin;
 
+    @Column(name = "destination", nullable = false, length = 3)
     private String destination;
 
+    @Column(name = "departure", nullable = false)
     private String departure;
 
+    @Column(name = "arrival", nullable = false)
     private String arrival;
 
+    @Column(name = "carrier", nullable = false, length = 3)
     private String carrier;
+
 
     public String getOrigin() {
         return origin;
