@@ -58,7 +58,7 @@ public class ReservationService {
     }
 
     public ReservationDTO update(Long id, ReservationDTO reservation) {
-        if (getReservationById(id) == null) {
+        if (!repository.existsById(id)) {
             LOGGER.debug("Not exist reservation with the id {}", id);
             throw new EdteamException(APIError.RESERVATION_NOT_FOUND);
         }
@@ -70,7 +70,7 @@ public class ReservationService {
     }
 
     public void delete(Long id) {
-        if (getReservationById(id) == null) {
+        if (!repository.existsById(id)) {
             LOGGER.debug("Not exist reservation with the id {}", id);
             throw new EdteamException(APIError.RESERVATION_NOT_FOUND);
         }
