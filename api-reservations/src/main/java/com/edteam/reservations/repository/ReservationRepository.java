@@ -1,6 +1,7 @@
 package com.edteam.reservations.repository;
 
 import com.edteam.reservations.model.Reservation;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -23,5 +24,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     @Query(QUERY_FIND_BY_CREATION_DATE_AND_FIRSTNAME_AND_LASTNAME)
     List<Reservation> findByCreationDateAndPassengersFirstNameAndPassengersLastName (@Param("creationDate") LocalDate localDate,@Param("firstName") String firstName, @Param("lastName") String lastName);
 
+    List<Reservation> findAll (Specification<Reservation> specification);
 
 }
