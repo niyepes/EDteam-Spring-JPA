@@ -29,8 +29,8 @@ public class ReservationSpecification {
                 predicates.add(criteriaBuilder.equal(root.get("creationDate"),criteria.getReservationDate()));
             }
 
-
-        }
+            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+        };
 
 
     }
