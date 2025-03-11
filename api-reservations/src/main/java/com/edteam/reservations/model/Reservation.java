@@ -19,7 +19,7 @@ public class Reservation extends Base {
     @Valid
     @NotEmpty(message="You need at least one passenger")
     @OneToMany
-    @Cascade(CascadeType.ALL)
+    @Cascade(CascadeType.DELETE)
     @JoinColumn(name="reservation_id")
     private List<Passenger> passengers;
 
