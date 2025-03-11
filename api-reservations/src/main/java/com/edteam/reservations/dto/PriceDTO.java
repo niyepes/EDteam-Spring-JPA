@@ -4,11 +4,21 @@ import java.math.BigDecimal;
 
 public class PriceDTO {
 
+    private Long version;
+
     private BigDecimal totalPrice;
 
     private BigDecimal totalTax;
 
     private BigDecimal basePrice;
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
 
     public BigDecimal getTotalPrice() {
         return totalPrice;

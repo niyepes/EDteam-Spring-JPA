@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class PassengerDTO {
 
+    private Long version;
+
     private String firstName;
     private String lastName;
 
@@ -12,6 +14,14 @@ public class PassengerDTO {
     private String documentType;
 
     private LocalDate birthday;
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
 
     public String getFirstName() {
         return firstName;
