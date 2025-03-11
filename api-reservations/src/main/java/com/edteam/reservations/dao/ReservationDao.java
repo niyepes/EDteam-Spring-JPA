@@ -4,6 +4,7 @@ import com.edteam.reservations.dto.SearchReservationCriteriaDTO;
 import com.edteam.reservations.model.Reservation;
 import com.edteam.reservations.specification.ReservationSpecification;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.LockModeType;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -35,7 +36,7 @@ public class ReservationDao implements IReservationDao{
 
     @Override
     public Optional<Reservation> findById(Long id) {
-        Reservation reservation = entityManager.find(Reservation.class,id);
+        Reservation reservation = entityManager.find(Reservation.class,id, LockModeType.PESSIMISTIC_READ);
         return Optional.of(reservation);
     }
 
