@@ -18,13 +18,13 @@ public class Reservation extends Base {
 
     @Valid
     @NotEmpty(message="You need at least one passenger")
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     @Cascade(CascadeType.DELETE)
     @JoinColumn(name="reservation_id")
     private List<Passenger> passengers;
 
     @Valid
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @JoinColumn(name="itinerary_id")
     private Itinerary itinerary;
