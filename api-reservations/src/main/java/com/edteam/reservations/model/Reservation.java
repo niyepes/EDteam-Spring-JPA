@@ -16,6 +16,7 @@ import java.util.Objects;
 @Entity
 public class Reservation extends Base {
 
+    @OrderBy("lastname ASC")
     @Valid
     @NotEmpty(message="You need at least one passenger")
     @OneToMany(fetch = FetchType.LAZY)
