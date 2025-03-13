@@ -36,6 +36,7 @@ public class ReservationService {
 
     public List<ReservationDTO> getReservations(SearchReservationCriteriaDTO criteria) {
         return conversionService.convert(repository.findAll(ReservationSpecification.withSearchCriteria(criteria)),List.class);
+        //return conversionService.convert(repository.findAllByOrderByCreationDateDesc(),List.class);
     }
 
     public ReservationDTO getReservationById(Long id) {

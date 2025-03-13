@@ -33,4 +33,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     @Transactional(readOnly = true, timeout=1000)
     List<Reservation> findAll (Specification<Reservation> specification);
 
+    List<Reservation> findAllByOrderByCreationDateDesc();
+
 }
