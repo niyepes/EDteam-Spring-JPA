@@ -6,8 +6,10 @@ public class SearchReservationCriteriaDTO {
     private Long itineraryId;
     private String firstName;
     private String lastName;
-
     private LocalDate reservationDate;
+    private String sortField;
+    private String sortingDirection;
+    
 
     public Long getItineraryId() {
         return itineraryId;
@@ -39,5 +41,21 @@ public class SearchReservationCriteriaDTO {
 
     public void setReservationDate(LocalDate reservationDate) {
         this.reservationDate = reservationDate;
+    }
+
+    public String getSortField() {
+        return sortField;
+    }
+
+    public void setSortField(String sortField) {
+        this.sortField = sortField;
+    }
+
+    public String getSortingDirection() {
+        return sortingDirection;
+    }
+
+    public void setSortingDirection(String sortingDirection) {
+        this.sortingDirection = sortingDirection;
     }
 }
