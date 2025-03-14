@@ -87,6 +87,12 @@
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+            <version>9.16.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>
