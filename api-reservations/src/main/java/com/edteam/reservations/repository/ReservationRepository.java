@@ -8,9 +8,8 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.data.domain.Pageable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
@@ -31,7 +30,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     List<Reservation> findByCreationDateAndPassengersFirstNameAndPassengersLastName (@Param("creationDate") LocalDate localDate,@Param("firstName") String firstName, @Param("lastName") String lastName);
 
     @Transactional(readOnly = true, timeout=1000)
-    List<Reservation> findAll (Specification<Reservation> specification);
+    List<Reservation> findAll (Specification<Reservation> specification, Pageable pageable);
 
     List<Reservation> findAllByOrderByCreationDateDesc();
 
