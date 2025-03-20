@@ -9,3 +9,18 @@ services:
       MYSQL_ROOT_PASSWORD: 'muppet'
     ports:
       - 3310:3306
+
+  mi-app:
+    container_name: phpmyadmin-container
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 8085:80
+    environment:
+      - DB_HOST=api-reservation-db
+    networks:
+      - mi-red
+
+networks:
+  mi-red:
+    driver: bridge
